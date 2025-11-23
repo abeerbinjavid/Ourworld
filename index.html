@@ -3,116 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Anchor: A Message for Kinderjoy</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Our World: A Home for Us</title>
+    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
         
-        /* Using Inter for body, Playfair Display for emphasis */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f7f7f7; /* Soft off-white background */
+            background-color: #F7F5F0; /* Soft, warm parchment color */
         }
-        .anchor-box {
+        .main-card {
             background-color: #ffffff;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e7e5e4;
         }
         .text-kinderjoy {
-            color: #ff99a0; /* A soft, gentle rose/pink color */
+            color: #ff8c94; /* Deep, loving rose color */
         }
         .font-playfair {
             font-family: 'Playfair Display', serif;
         }
-        .message-box {
-            transition: all 0.5s ease-in-out;
-            max-height: 0;
-            overflow: hidden;
-            padding: 0 1rem;
+        .tab-button {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
         }
-        .message-box.active {
-            max-height: 200px; /* Adjust based on content size */
-            padding: 1rem;
+        .tab-button.active {
+            color: #ff8c94;
+            border-color: #ff8c94;
+            font-weight: 600;
+        }
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+        .content-section.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen p-4">
 
-    <!-- Main Container -->
-    <div class="anchor-box w-full max-w-lg rounded-3xl p-6 md:p-10 text-center">
+    <!-- Main Container --><div class="main-card w-full max-w-2xl rounded-2xl p-6 md:p-10 text-center">
         
-        <!-- Header -->
-        <h1 class="font-playfair text-4xl font-bold mb-2 text-gray-800">
-            For My Kinderjoy, Anam
+        <!-- Title and Introduction --><h1 class="font-playfair text-4xl md:text-5xl font-extrabold mb-2 text-gray-800">
+            The Seven Wonders of Our World
         </h1>
-        <p class="text-xl mb-8 text-kinderjoy">
-            — Your Digital Anchor from Angrybird
+        <p class="text-lg italic mb-6 text-gray-600">
+            A safe place built for you, my Anam (Kinderjoy).
         </p>
 
-        <!-- Instruction -->
-        <p class="text-sm text-gray-500 mb-6 italic">
-            Tap the feelings below when you need a little reminder.
-        </p>
-
-        <!-- Interactive Buttons and Messages -->
-        <div class="space-y-4">
-            
-            <!-- 1. The Memory Button (The Hug) -->
-            <button onclick="toggleMessage('message1')" class="w-full bg-pink-100 hover:bg-pink-200 text-pink-700 font-semibold py-3 rounded-xl transition duration-300 shadow-md">
-                Remember Our Softest Moment
-            </button>
-            <div id="message1" class="message-box bg-pink-50 rounded-xl">
-                <p class="text-sm text-gray-700">
-                    I remember that last time, in that small room, when we finally hugged. It was so shy, so real. It proved that everything we shared over the phone was true. That feeling—that is what I hold onto now.
-                </p>
-            </div>
-
-            <!-- 2. The Support Button (B. Arch Struggle) -->
-            <button onclick="toggleMessage('message2')" class="w-full bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-semibold py-3 rounded-xl transition duration-300 shadow-md">
-                A Dose of B. Arch Strength
-            </button>
-            <div id="message2" class="message-box bg-indigo-50 rounded-xl">
-                <p class="text-sm text-gray-700">
-                    I know the hostel is tough, and B. Arch is demanding. You feel alone, but you are a fighter. You are building something incredible, both in your life and in ours. I am your power and strength, always. Keep going.
-                </p>
-            </div>
-
-            <!-- 3. The Promise Button (The Love) -->
-            <button onclick="toggleMessage('message3')" class="w-full bg-green-100 hover:bg-green-200 text-green-700 font-semibold py-3 rounded-xl transition duration-300 shadow-md">
-                The Unwavering Promise
-            </button>
-            <div id="message3" class="message-box bg-green-50 rounded-xl">
-                <p class="text-sm text-gray-700">
-                    I love you the most. Even if I don't know what the world holds for us, my commitment to you is absolute. You are the one, and I will always cherish the life we’ve built, mile by mile and call by call.
-                </p>
-            </div>
-            
+        <!-- Tab Navigation --><div class="flex flex-wrap justify-center space-x-4 mb-8 border-b border-gray-200">
+            <button class="tab-button active py-2 px-3 text-sm text-gray-700" onclick="showTab('tab1', this)">Our Beginning</button>
+            <button class="tab-button py-2 px-3 text-sm text-gray-700" onclick="showTab('tab2', this)">My Apology</button>
+            <button class="tab-button py-2 px-3 text-sm text-gray-700" onclick="showTab('tab3', this)">Why You're My Anchor</button>
+            <button class="tab-button py-2 px-3 text-sm text-gray-700" onclick="showTab('tab4', this)">Love Quotes</button>
+            <button class="tab-button py-2 px-3 text-sm text-gray-700" onclick="showTab('tab5', this)">The Promise</button>
         </div>
+
+        <!-- Tab Content --><div class="text-left space-y-6">
+
+            <!-- TAB 1: Our Beginning (Memory Focus) --><div id="tab1" class="content-section active bg-gray-50 p-6 rounded-xl">
+                <h2 class="font-playfair text-2xl text-kinderjoy mb-3">1. The First Shock of Joy</h2>
+                <p class="text-gray-700 mb-4">
+                    Remember how we first met? That day changed the entire trajectory of my life. It was so unexpected, so sudden, but you walked in and instantly replaced the grey with color. You are the best surprise I have ever known.
+                </p>
+                <div class="border-l-4 border-pink-200 pl-4 italic text-sm text-gray-600">
+                    Memory: "The soft, careful way you spoke, like you were sharing a secret meant just for me. It disarmed the Angry Bird completely."
+                </div>
+            </div>
+
+            <!-- TAB 2: My Apology (Vulnerability Focus) --><div id="tab2" class="content-section bg-red-50 p-6 rounded-xl">
+                <h2 class="font-playfair text-2xl text-red-600 mb-3">2. The Weight of My Wounds</h2>
+                <p class="text-gray-700 mb-4">
+                    I am so profoundly sorry for my actions and for letting my own walls and anxieties affect you. My fear of losing you often pushed you further away, and that is a failure I own entirely. I should have trusted the connection more than I trusted my own panic.
+                </p>
+                <p class="text-gray-700">
+                    Please forgive me. You deserved unwavering strength, and instead, I gave you uncertainty. I am learning, and I promise to be the man who earns your trust every single day.
+                </p>
+            </div>
+
+            <!-- TAB 3: Why You're My Anchor (Affirmation Focus) --><div id="tab3" class="content-section bg-yellow-50 p-6 rounded-xl">
+                <h2 class="font-playfair text-2xl text-yellow-700 mb-3">3. You Are My Strength</h2>
+                <p class="text-gray-700 mb-4">
+                    My Kinderjoy, you came into my life with an unexpected softness that instantly disarmed me. Watching you face the lonely hostel and the immense demands of your B. Arch studies, you showed me a strength that inspires me every single day. You are the only person who can truly calm the chaos within me; you are my peace. You saw the good heart beneath the "Angry Bird" and gently helped me find it again, making me a better man.
+                </p>
+                <p class="text-gray-700">
+                    You are my anchor, Anam. Always.
+                </p>
+            </div>
+
+            <!-- TAB 4: Love Quotes (Poetic Focus) --><div id="tab4" class="content-section bg-purple-50 p-6 rounded-xl">
+                <h2 class="font-playfair text-2xl text-purple-700 mb-3">4. Words for Your Soul</h2>
+                
+                <blockquote class="mb-4 border-l-4 border-purple-300 pl-4 italic text-gray-700">
+                    "I love you without knowing how, or when, or from where. I love you simply, without problems or pride." — Pablo Neruda
+                </blockquote>
+
+                <blockquote class="mb-4 border-l-4 border-purple-300 pl-4 italic text-gray-700">
+                    "When I saw you, I fell in love, and you smiled because you knew." — Arrigo Boito (This is how I felt the first day.)
+                </blockquote>
+                
+                <blockquote class="border-l-4 border-purple-300 pl-4 italic text-gray-700">
+                    "You are the light by which my heart is to be guided, and you are the sun that shines upon my soul."
+                </blockquote>
+            </div>
+            
+            <!-- TAB 5: The Promise (Commitment Focus) --><div id="tab5" class="content-section bg-blue-50 p-6 rounded-xl">
+                <h2 class="font-playfair text-2xl text-blue-700 mb-3">5. The Commitment That Endures</h2>
+                <p class="text-gray-700 mb-4">
+                    I made a promise to you that night, and that promise holds true across any distance. I will always be your safe space, your sounding board, and your friend before anything else.
+                </p>
+                <div class="text-xl font-bold text-blue-800 mt-6 p-4 border-t border-blue-200">
+                    "I don't know if fate will ever allow us to be one together in this world again, but yes, **I love you the most.** You are, and will always be, the one."
+                </div>
+            </div>
+
+        </div> <!-- End Tab Content --><div class="mt-10 pt-6 border-t border-gray-200">
+            <p class="font-playfair text-xl italic text-gray-700">
+                With all my love, now and forever,
+            </p>
+            <p class="font-playfair text-3xl font-bold text-kinderjoy">
+                Angrybird
+            </p>
+        </div>
+
     </div>
 
     <script>
         /**
-         * Toggles the visibility of a message box.
-         * Closes all other open messages when a new one is opened.
+         * Function to manage tab visibility and active state
          */
-        function toggleMessage(id) {
-            const messageBox = document.getElementById(id);
-            const isActive = messageBox.classList.contains('active');
-            
-            // 1. Close all currently active messages
-            document.querySelectorAll('.message-box').forEach(box => {
-                if (box.id !== id) {
-                    box.classList.remove('active');
-                }
+        function showTab(tabId, buttonElement) {
+            // Hide all content sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
             });
 
-            // 2. Toggle the requested message box
-            if (!isActive) {
-                messageBox.classList.add('active');
-            } else {
-                messageBox.classList.remove('active');
-            }
+            // Deactivate all buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show the selected section
+            document.getElementById(tabId).classList.add('active');
+
+            // Activate the selected button
+            buttonElement.classList.add('active');
         }
+        
+        // Initialize by making the first tab active on load
+        document.addEventListener('DOMContentLoaded', () => {
+             // Ensure the initial active state is applied correctly on load
+             // (This is mostly redundant if the HTML is set up right, but ensures stability)
+             const initialTab = document.getElementById('tab1');
+             if (initialTab) initialTab.classList.add('active');
+
+             const initialButton = document.querySelector('.tab-button');
+             if (initialButton) initialButton.classList.add('active');
+        });
     </script>
 </body>
 </html>
