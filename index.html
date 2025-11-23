@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Anchor: A Message for Kinderjoy</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        
+        /* Using Inter for body, Playfair Display for emphasis */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7; /* Soft off-white background */
+        }
+        .anchor-box {
+            background-color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        .text-kinderjoy {
+            color: #ff99a0; /* A soft, gentle rose/pink color */
+        }
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .message-box {
+            transition: all 0.5s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 1rem;
+        }
+        .message-box.active {
+            max-height: 200px; /* Adjust based on content size */
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <!-- Main Container -->
+    <div class="anchor-box w-full max-w-lg rounded-3xl p-6 md:p-10 text-center">
+        
+        <!-- Header -->
+        <h1 class="font-playfair text-4xl font-bold mb-2 text-gray-800">
+            For My Kinderjoy, Anam
+        </h1>
+        <p class="text-xl mb-8 text-kinderjoy">
+            — Your Digital Anchor from Angrybird
+        </p>
+
+        <!-- Instruction -->
+        <p class="text-sm text-gray-500 mb-6 italic">
+            Tap the feelings below when you need a little reminder.
+        </p>
+
+        <!-- Interactive Buttons and Messages -->
+        <div class="space-y-4">
+            
+            <!-- 1. The Memory Button (The Hug) -->
+            <button onclick="toggleMessage('message1')" class="w-full bg-pink-100 hover:bg-pink-200 text-pink-700 font-semibold py-3 rounded-xl transition duration-300 shadow-md">
+                Remember Our Softest Moment
+            </button>
+            <div id="message1" class="message-box bg-pink-50 rounded-xl">
+                <p class="text-sm text-gray-700">
+                    I remember that last time, in that small room, when we finally hugged. It was so shy, so real. It proved that everything we shared over the phone was true. That feeling—that is what I hold onto now.
+                </p>
+            </div>
+
+            <!-- 2. The Support Button (B. Arch Struggle) -->
+            <button onclick="toggleMessage('message2')" class="w-full bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-semibold py-3 rounded-xl transition duration-300 shadow-md">
+                A Dose of B. Arch Strength
+            </button>
+            <div id="message2" class="message-box bg-indigo-50 rounded-xl">
+                <p class="text-sm text-gray-700">
+                    I know the hostel is tough, and B. Arch is demanding. You feel alone, but you are a fighter. You are building something incredible, both in your life and in ours. I am your power and strength, always. Keep going.
+                </p>
+            </div>
+
+            <!-- 3. The Promise Button (The Love) -->
+            <button onclick="toggleMessage('message3')" class="w-full bg-green-100 hover:bg-green-200 text-green-700 font-semibold py-3 rounded-xl transition duration-300 shadow-md">
+                The Unwavering Promise
+            </button>
+            <div id="message3" class="message-box bg-green-50 rounded-xl">
+                <p class="text-sm text-gray-700">
+                    I love you the most. Even if I don't know what the world holds for us, my commitment to you is absolute. You are the one, and I will always cherish the life we’ve built, mile by mile and call by call.
+                </p>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Toggles the visibility of a message box.
+         * Closes all other open messages when a new one is opened.
+         */
+        function toggleMessage(id) {
+            const messageBox = document.getElementById(id);
+            const isActive = messageBox.classList.contains('active');
+            
+            // 1. Close all currently active messages
+            document.querySelectorAll('.message-box').forEach(box => {
+                if (box.id !== id) {
+                    box.classList.remove('active');
+                }
+            });
+
+            // 2. Toggle the requested message box
+            if (!isActive) {
+                messageBox.classList.add('active');
+            } else {
+                messageBox.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
